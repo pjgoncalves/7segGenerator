@@ -1,6 +1,6 @@
 		/* 	
 			Pedro Gonçalves 
-			ispg2992@gmail.com 
+			ispg2992@ispgaya.pt
 			pedro.goncalves2k@gmail.com 
 			@pjgoncalves 
 		*/
