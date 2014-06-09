@@ -36,13 +36,34 @@
 		#output_results{
 			padding: 1px;
 			background-color: #858585;
-			margin-right: 120px;
-			margin-left: 120px;
+			margin-right: 500px;
+			margin-left: 500px;
 			-webkit-border-radius: 5px;
 			-moz-border-radius: 5px;
 			border-radius: 5px;
-
 			letter-spacing:3px
+		}
+
+
+		@media only screen and (max-width : 520px) {
+			#output_results{
+				margin-right:50px;
+				margin-left:50px;
+			}
+		}
+
+		@media only screen and (max-width :1200px) {
+			#output_results{
+				margin-right:350px;
+				margin-left:350px;
+			}
+		}
+
+		@media only screen and (max-width :850px) {
+			#output_results{
+				margin-right:120px;
+				margin-left:120px;
+			}
 		}
 
 
@@ -215,21 +236,21 @@
 							<h3>clique nos segmentos que pretende acender</h3>
 						</div>
 						<div class="seven-segment">
-							<div class="a" id="a"></div>
-							<div class="b" id="b"></div>
-							<div class="c" id="c"></div>
-							<div class="d" id="d"></div>
-							<div class="e" id="e"></div>
-							<div class="f" id="f"></div>
-							<div class="g" id="g">
+							<div class="a seg" id="0"></div>
+							<div class="b seg" id="1"></div>
+							<div class="c seg" id="2"></div>
+							<div class="d seg" id="3"></div>
+							<div class="e seg" id="4"></div>
+							<div class="f seg" id="5"></div>
+							<div class="g seg" id="6">
 								<div class="top"></div>
 								<div class="bottom"></div>
 							</div>
 						</div>
 				
-						<div id="output_results" style="margin-top:30px">
+						<div id="output_results" style="margin-top:30px">	
 
-
+							<h2>ABCDEFG</h2>
 							<h2 id ="output">0000000</h2>
 						</div>
 				</div>
@@ -263,30 +284,13 @@
 			*/
 		var segments = ["0", "0", "0", "0", "0", "0", "0"];
 
-			$( ".a, .b, .c, .d, .e, .f, .g" ).click(function() {
-					$( this ).toggleClass( "on" );
-
-					if ($('#a').hasClass("on")) {
-							segments[0]='1';
-					} else segments[0]='0';
-					if ($('#b').hasClass("on")) {
-							segments[1]='1';
-					} else segments[1]='0';;
-					if ($('#c').hasClass("on")) {
-							segments[2]='1';
-					} else segments[2]='0';;
-					if ($('#d').hasClass("on")) {
-							segments[3]='1';
-					} else segments[3]='0';
-					if ($('#e').hasClass("on")) {
-							segments[4]='1';
-					} else segments[4]='0';
-					if ($('#f').hasClass("on")) {
-							segments[5]='1';
-					} else segments[5]='0';
-					if ($('#g').hasClass("on")) {
-							segments[6]='1';
-					} else segments[6]='0';
+			$( ".seg" ).click(function() { 
+					$(this).toggleClass( "on" );
+					var tempid = $(this).attr('id');
+					if ($(this).hasClass("on")){ // little help from @hfalucas
+						segments[tempid]='1'
+					}else segments[tempid]='0' ;
+						
 
 					$('#output').replaceWith('<h2 id="output">'+ segments.join().replace(/\,/g,'') + "</h2>");
 			});
